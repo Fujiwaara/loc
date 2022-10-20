@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+section {
+   position: relative;
+   width: 100%;
+   min-height: 100vh;
+   padding: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow-x: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fc4a55;
+    transition: 0.5s;
+}
+/* effet changement de couleur partie gauche */
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    position: relative;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.nav {
+    position: relative;
+    display: flex;
+}
+
+.nav li {
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 40px;
+    text-decoration: none;
+}
+/* Menu actif et effet hover sur le menu */
+.active, li a:hover {
+    background: #fff;
+    color: #333;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBox {
+    position: relative;
+    max-width: 600px;
+}
+
+h2 {
+   color: #fff;
+   font-size: 4em;
+   line-height: 1.2em;
+   font-weight: 700; 
+}
+
+p {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.textBox a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #fff;
+    color: #333;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.imgBox {
+    position: relative;
+    z-index: 1;
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imgCover {
+    max-width: 400px;
+}
+
+.sliderMenu {
+   position: absolute;
+   left: 50%;
+   bottom: 20px;
+   transform: translateX(-50%);
+   display: flex; 
+}
+/* contour du slider menu */
+.sliderMenu li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+/* text en fond de page */
+.sliderMenu li::before {
+    position: absolute;
+    top: -200px;
+    left: -100px;
+    content: attr(data-text);
+    white-space: nowrap;
+    font-size: 8em;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    pointer-events: none;
+}
+/* contour du slider menu actif */
+.sliderMenu li.active {
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+/* visibilité du texte selon la page active */
+.sliderMenu li.active::before {
+    opacity: 1;
+}
+
+.imgSliderMenu {
+    max-width: 60px;
+}
+
+.reseauSocial {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reseauSocial li {
+    list-style: none;
+}
+/* filter invert pour passer de l'image noir à blanche */
+.reseauSocial li a {
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+    filter: invert(1); 
+}
+
+
+@media screen and (max-width: 991px) {
+    .bg::before {
+        display: none;
+    }
+
+    section {
+        padding: 20px;
+        padding-bottom: 120px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .content {
+        margin-top: 120px;
+        flex-direction: column;
+    }
+
+    .textBox {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    .imgBox {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .imgCover {
+        max-width: 300px;
+    }
+
+    .sliderMenu li {
+        margin: 0 3px;
+        height: 55px;
+    }
+
+    .imgSliderMenu {
+        max-width: 40px;
+    }
+
+    .sliderMenu li::before {
+        top: -150px;
+        left: 0;
+        font-size: 6em;
+    }
+
+    .reseauSocial {
+        background: rgba(0, 0, 0, 0.1);
+        right: 0;
+        width: 50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .toggle {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(/img/menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 10;
+    }
+}
