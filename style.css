@@ -76,7 +76,7 @@ a {
     text-decoration: none;
 }
 /* Menu actif et effet hover sur le menu */
-.active, li a:hover {
+.active, .nav li a:hover {
     background: #fff;
     color: #333;
 }
@@ -127,7 +127,7 @@ p {
 }
 
 .imgCover {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .sliderMenu {
@@ -140,13 +140,14 @@ p {
 /* contour du slider menu */
 .sliderMenu li {
     list-style: none;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     margin: 0 10px;
     cursor: pointer;
     transition: 0.5s;
+    width: 70px;
     height: 70px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 5px;
     border: 2px solid rgba(255, 255, 255, 0.25);
 }
 /* text en fond de page */
@@ -173,6 +174,7 @@ p {
 
 .imgSliderMenu {
     max-width: 60px;
+    object-fit: contain;
 }
 
 .reseauSocial {
@@ -197,6 +199,11 @@ p {
     filter: invert(1); 
 }
 
+@media screen and (max-width: 1300px) {
+    .imgCover {
+        max-width: 450px;
+    }
+}
 
 @media screen and (max-width: 991px) {
     .bg::before {
@@ -231,12 +238,13 @@ p {
     }
 
     .imgCover {
-        max-width: 300px;
+        max-width: 350px;
     }
 
     .sliderMenu li {
         margin: 0 3px;
         height: 55px;
+        width: 55px;
     }
 
     .imgSliderMenu {
